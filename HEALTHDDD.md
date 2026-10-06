@@ -1,5 +1,5 @@
 
-1. Domain
+## 1. Domain
 
 Imagine a university enrollment system.
 
@@ -11,7 +11,7 @@ A course must have available capacity.
 A student must meet the course prerequisites.
 An enrollment must belong to a specific student.
 
-2. Aggregate Root: CourseEnrollment
+## 2. Aggregate Root: CourseEnrollment
 
 The aggregate root is the main object responsible for controlling the enrollment information
 
@@ -27,7 +27,7 @@ CourseEnrollment
        └── Course C
 
 
-3. Example Invariants
+## 3. Example Invariants
 
 Let's assume the university has these limits:
 
@@ -37,7 +37,7 @@ Maximum students in a course	30
 Duplicate enrollment	Not allowed
 Prerequisites	Must be satisfied
 
-Example
+## Example
 
 If a student already has:
 1. Database Systems
@@ -47,7 +47,7 @@ If a student already has:
 5. Operating Systems
 6. Software Engineering
 
- They already have 6 courses.
+ ## They already have 6 courses.
 
 Trying to add another course should fail
 
@@ -63,7 +63,7 @@ Already 6 courses
        ↓
 REJECT
 
-4. Domain Events
+## 4. Domain Events
 
 When something important happens in the domain, the aggregate can produce a domain event.
 
@@ -73,9 +73,9 @@ CourseAdded
 CourseEnrollmentRejected
 CourseDropped
 
-A domain event means:
 
-"Something important has happened in the business."
+
+## "Something important has happened in the business."
 
 For example
 
@@ -89,7 +89,7 @@ Course is added
         ↓
 CourseEnrolled event is emitted
 
-5. Simple DDD Model
+## 5. Simple DDD Model
 
 ┌─────────────────────────────────────┐
 │       CourseEnrollment              │
@@ -112,7 +112,7 @@ CourseEnrolled event is emitted
         │ Domain Event        │
         └─────────────────────┘
 
-  6. Example Pseudocode
+ ## 6. Example Pseudocode
 
      class CourseEnrollment {
 
@@ -153,7 +153,7 @@ CourseEnrolled event is emitted
     }
 }
 
-7. What happens when a student enrolls?
+## 7. What happens when a student enrolls?
 
 Student requests enrollment
           ↓
